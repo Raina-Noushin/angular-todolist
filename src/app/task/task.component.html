@@ -1,0 +1,38 @@
+<h1>{{ title }}</h1>
+<div class="container">
+<form  [formGroup]="todoList" (ngSubmit)="onSubmit()">
+  <input type="text " #newTask placeholder="Task Title" formControlName="title" /><br /><br />
+
+  <input type="text " placeholder="Sort Description:" formControlName="sort" /><br /><br />
+
+  <input type="date" placeholder="dd-mm-yy" formControlName="date"
+  /><br /><br />
+  <p hidden>
+
+    <input type="text" placeholder="Status" formControlName="status" /><br /><br />
+  </p>
+  <button class="btn btn-outline-primary">Add Task</button><br /><br />
+</form>
+</div>
+<table>
+
+  <tr *ngFor="let task of tasks"  class="container_1">
+   <b> <td> {{ task.title }}  </td></b> <br>
+       <td>{{ task.sort }}  </td>
+       <td>Date of Expiry : {{ task.date }}  </td><br>
+       <td>{{ task.status }}</td>
+  <td>
+      <button class="btn btn-outline-danger" (click)="updateItem(task)">
+        Change Status
+      </button>
+  </td>
+
+  </tr>
+</table>
+<!-- {{ myDate | date: "yyyy-MM-dd" }} -->
+<!-- <h3>Ex: {{name}}</h3>
+  <br>
+  <p>Min Date : {{ minDate }}</p>
+  <p>Max Date : {{ maxDate }}</p>
+  <p>Current Date : {{ currentDate }}</p>
+  <p>Is Current Date in Range?: {{ checkDateInRange(this.currentDate, this.minDate, this.maxDate) }}</p> -->
